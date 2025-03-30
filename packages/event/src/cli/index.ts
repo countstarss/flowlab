@@ -25,7 +25,7 @@ cli
     }
 
     try {
-      await emitEvent(eventName, parsed);
+      await emitEvent(eventName, parsed, options);
       console.log(colors.green(`✅ 已成功触发事件 ${eventName}`));
     } catch (err) {
       console.error(colors.red(`❌ 触发失败: ${(err as Error).message}`));
