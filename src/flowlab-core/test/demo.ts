@@ -76,3 +76,12 @@ const mainFlow = FlowLab.create('UserOnboarding')
   const result = await mainFlow.run(input, context);
   console.log('✅ 执行结果：', result);
 })();
+
+
+export async function demo() {
+  const input: UserInput = { name: 'Alice' };
+  const context: WorkflowContext = { tenantId: 't1', userId: 'u1' };
+
+  const result = await mainFlow.run(input, context);
+  console.log('✅ 执行结果：', result);
+}

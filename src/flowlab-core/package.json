@@ -4,6 +4,9 @@
   "description": "FlowLab 核心模块，支持 DAG 编排、任务链与自动调度。",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "flowlab": "./cli/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
