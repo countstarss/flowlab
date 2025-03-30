@@ -1,4 +1,4 @@
-import { demo } from '../../test/demo';
+import { demo } from '../../../test/demo';
 
 export async function runDemoWorkflow() {
   console.log('🚀 运行 FlowLab 示例工作流...');

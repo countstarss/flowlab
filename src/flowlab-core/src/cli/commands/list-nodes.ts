@@ -1,4 +1,4 @@
-import { FlowLab } from '../../src/core/FlowLab';
+import { FlowLab } from '../../../src/core/FlowLab';
 
 export function listNodes() {
   const nodes = FlowLab.getAllRegisteredNodes();
