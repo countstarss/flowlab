@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@flowlab/core": ["./packages/core/src/index.ts"]
+    }
+  }
+}
