@@ -1,0 +1,28 @@
+{
+  "name": "@flowlab/core",
+  "version": "1.0.0",
+  "description": "FlowLab 核心模块，支持 DAG 编排、任务链与自动调度。",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "workflow",
+    "DAG",
+    "FlowLab",
+    "工作流",
+    "工作流引擎",
+    "orchestration"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ioredis": "^5.6.0",
+    "redis": "^4.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0"
+  }
+}

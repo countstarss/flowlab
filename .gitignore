@@ -1,0 +1,18 @@
+# 忽略所有 node_modules
+node_modules/
+
+# 忽略所有 dist 目录
+dist/
+
+# 忽略所有 .env 文件
+.env
+# 忽略所有 .env.local 文件
+.env.local
+# 忽略所有 .env.development 文件
+.env.development
+# 忽略所有 .env.production 文件
+.env.production
+# 忽略所有 .env.test 文件
+.env.test
+# 忽略所有 .env.test.local 文件
+.env.test.local

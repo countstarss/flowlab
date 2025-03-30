@@ -1,0 +1,41 @@
+{
+  "name": "flowlab",
+  "version": "1.0.0",
+  "description": "A cool library focusing on handling various flows",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/countstarss/flowlab.git"
+  },
+  "keywords": [
+    "Workflow",
+    "Node",
+    "Task",
+    "Condition",
+    "Chaining",
+    "Subwirkflow",
+    "Tool",
+    "Memory",
+    "Parallel",
+    "Execution",
+    "Retry",
+    "&",
+    "Error",
+    "Handling",
+    "Scheduling",
+    "API",
+    "Integration",
+    "Data",
+    "Passing",
+    "Logging"
+  ],
+  "author": "luke king",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/countstarss/flowlab/issues"
+  },
+  "homepage": "https://github.com/countstarss/flowlab#readme"
+}
