@@ -1,8 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "moduleResolution": "node", // Resolves modules in a Node.js-compatible way
+    "esModuleInterop": true, // Allow default imports from modules with no default export
+    "resolveJsonModule": true, // Allow importing of .json files (for package.json)
+    "strict": true, // Enable strict mode for type safety
+    "skipLibCheck": true, // Skip type checking for libraries (improves build speed)
+    "baseUrl": ".", // Ensure the base URL is the root of the project
     "paths": {
-      "@flowlab/core": ["./packages/core/src/index.ts"]
-    }
-  }
+      "*": ["node_modules/*", "src/*"],
+      "@flowlab/core": ["./packages/core/src/index.ts"],
+      "@flowlab/event": ["./packages/event/src/index.ts"],
+      "cac": ["./node_modules/cac/dist/"],
+      "packageJson": ["../package.json"]
+    },
+    "types": ["node"]
+  },
+  "include": ["cli", "packages/**/*"]
 }

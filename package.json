@@ -4,7 +4,11 @@
   "description": "A cool library focusing on handling various flows",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsup"
+  },
+  "bin": {
+    "flowlab": "./dist/flowlab.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +26,6 @@
     "Parallel",
     "Execution",
     "Retry",
-    "&",
     "Error",
     "Handling",
     "Scheduling",
@@ -37,5 +40,12 @@
   "bugs": {
     "url": "https://github.com/countstarss/flowlab/issues"
   },
-  "homepage": "https://github.com/countstarss/flowlab#readme"
+  "homepage": "https://github.com/countstarss/flowlab#readme",
+  "dependencies": {
+    "cac": "^6.7.14"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
 }
