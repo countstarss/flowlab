@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/types.ts</title>
+    <title>Code coverage report for api/registerWorkflow.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> types.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">api</a> registerWorkflow.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.87% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>26/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.87% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>26/31</span>
             </div>
         
             
@@ -93,12 +93,7 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -108,74 +103,64 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// src/types.ts
-&nbsp;
-export type EventPayload = any;
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import { Workflow } from '@flowlab/core';
+import { bindEvent } from './bindEvent';
+import { EventContext } from '../internal/context';
+import { EventBus } from '../bus/EventBus';
 &nbsp;
 /**
- * 事件处理器函数类型
+ * 将一个工作流绑定到事件上
+ * @param eventName 事件名称
+ * @param workflow 要运行的工作流实例
  */
-export type EventHandler = (payload: EventPayload) =&gt; Promise&lt;void&gt;;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export function registerWorkflow(eventName: string, workflow: Workflow): void {</span></span>
+<span class="cstat-no" title="statement not covered" >  bindEvent(eventName, async (payload) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    await workflow.run(payload);</span>
+<span class="cstat-no" title="statement not covered" >  });</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-/**
- * EventBus 接口定义，支持 emit/on/off/start/stop 等
- */
-export interface IEventBus {
-  emit(eventName: string, payload: EventPayload): Promise&lt;void&gt;;
-  on(eventName: string, handler: EventHandler): void;
-  off(eventName: string, handler: EventHandler): void;
-  start(): Promise&lt;void&gt;;
-  stop(): Promise&lt;void&gt;;
-}
 &nbsp;
-/**
- * 事件总线选项
- */
-export interface EventBusOptions {
-  persistence?: boolean; // 是否持久化
-  redisUrl?: string; // Redis 连接 URL
-}
-&nbsp;
-/**
- * 事件注册信息
- */
-export interface EventRegistryEntry {
-  eventName: string;
-  handler: EventHandler;
-}
-&nbsp;</pre></td></tr></table></pre>
+// 绑定事件与工作流的执行
+export function bindWorkflowToEvent(
+  event: string,
+  handler: (payload: any, ctx: EventContext) =&gt; Promise&lt;void&gt;,
+  options: { bus: EventBus }
+) {
+  options.bus.on(event, async (payload: any) =&gt; {
+    const context: EventContext = {
+      emit: (nextEvent, nextPayload) =&gt; options.bus.emit(nextEvent, nextPayload),
+      data: payload,  // 当前事件的传递数据
+    };
+    await handler(payload, context);  // 触发处理函数
+  });
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-30T05:46:46.394Z
+                at 2025-03-30T05:52:00.658Z
             </div>
         <script src="../prettify.js"></script>
         <script>

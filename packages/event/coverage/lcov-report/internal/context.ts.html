@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/types.ts</title>
+    <title>Code coverage report for internal/context.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> types.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">internal</a> context.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>30/36</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>30/36</span>
             </div>
         
             
@@ -109,6 +109,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -122,60 +133,49 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// src/types.ts
-&nbsp;
-export type EventPayload = any;
-&nbsp;
-/**
- * 事件处理器函数类型
- */
-export type EventHandler = (payload: EventPayload) =&gt; Promise&lt;void&gt;;
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { IEventBus } from '../types';
+import { InMemoryBus } from '../bus/InMemoryBus';
 &nbsp;
 /**
- * EventBus 接口定义，支持 emit/on/off/start/stop 等
+ * 当前事件总线实例（默认使用内存实现）
  */
-export interface IEventBus {
-  emit(eventName: string, payload: EventPayload): Promise&lt;void&gt;;
-  on(eventName: string, handler: EventHandler): void;
-  off(eventName: string, handler: EventHandler): void;
-  start(): Promise&lt;void&gt;;
-  stop(): Promise&lt;void&gt;;
-}
+let currentEventBus: IEventBus = new InMemoryBus();
 &nbsp;
 /**
- * 事件总线选项
+ * 获取当前事件总线实例
  */
-export interface EventBusOptions {
-  persistence?: boolean; // 是否持久化
-  redisUrl?: string; // Redis 连接 URL
-}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export function getCurrentEventBus(): IEventBus {</span></span>
+<span class="cstat-no" title="statement not covered" >  return currentEventBus;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
 /**
- * 事件注册信息
+ * 替换当前使用的事件总线（可用于 Redis/Kafka）
+ * @param bus 自定义实现的事件总线
  */
-export interface EventRegistryEntry {
-  eventName: string;
-  handler: EventHandler;
-}
-&nbsp;</pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export function useEventBus(bus: IEventBus): void {</span></span>
+<span class="cstat-no" title="statement not covered" >  currentEventBus = bus;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+&nbsp;
+export interface EventContext {
+  // 事件的执行状态与数据
+  state?: string;    // 当前任务的状态，成功/失败等
+  data?: any;        // 传递的事件数据
+&nbsp;
+  // 事件的控制方法
+  emit: (event: string, payload: any) =&gt; Promise&lt;void&gt;;  // 触发下一个事件
+  abort?: () =&gt; void; // 中止事件流
+&nbsp;
+  // 其他上下文信息
+  [key: string]: any;
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-30T05:46:46.394Z
+                at 2025-03-30T05:52:00.658Z
             </div>
         <script src="../prettify.js"></script>
         <script>

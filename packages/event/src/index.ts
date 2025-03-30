@@ -7,6 +7,11 @@ export { stopEventListener } from './api/stopEventListener';
 export { listBoundEvents } from './api/listBoundEvents';
 export { isEventBound } from './api/isEventBound';
 export { onAnyEvent } from './api/onAnyEvent';
-export { useEventBus, getCurrentEventBus } from './internal/context';
 
+// 上下文与总线
+export { useEventBus, getCurrentEventBus } from './internal/context';
+export { EventBus } from './bus/EventBus';
+export { EventContext } from './internal/context';
+
+// 类型
 export * from './types';

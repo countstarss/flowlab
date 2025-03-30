@@ -3,7 +3,7 @@ import { IEventBus, EventHandler, EventPayload } from '../types';
 /**
  * EventBus 抽象基类，提供 emit/on/off 的基础能力
  */
-export abstract class EventBus implements IEventBus {
+export class EventBus implements IEventBus {
   protected handlers: Map<string, Set<EventHandler>> = new Map();
 
   /**
@@ -11,6 +11,8 @@ export abstract class EventBus implements IEventBus {
    * @param eventName - 事件名称
    * @param payload - 事件数据
    */
+
+
   async emit(eventName: string, payload: EventPayload): Promise<void> {
     const handlers = this.handlers.get(eventName);
     if (handlers) {
@@ -48,10 +50,16 @@ export abstract class EventBus implements IEventBus {
   /**
    * 启动事件监听（由子类实现）
    */
-  abstract start(): Promise<void>;
+  // abstract start(): Promise<void>;
+  start(): Promise<void> {
+    return Promise.resolve();
+  }
 
   /**
    * 停止事件监听（由子类实现）
    */
-  abstract stop(): Promise<void>;
+  // abstract stop(): Promise<void>;
+  stop(): Promise<void> {
+    return Promise.resolve();
+  }
 }
